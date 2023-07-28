@@ -1,0 +1,14 @@
+{
+    "home": {
+        "home": "home",
+        "hello": "Hello!"
+    },
+    "Footer": {
+        "copyright": "© Copyright M. Zdolski. MIT Licence."
+    },
+    "Menu": {
+        "pl": "Polish",
+        "en": "English",
+        "changeLanguageHint": "Change language"
+    }
+}
