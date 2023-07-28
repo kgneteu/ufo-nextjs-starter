@@ -9,7 +9,7 @@ module.exports = {
         node: true,
         jest: true,
     },
-    extends: ['plugin:@typescript-eslint/recommended','next/core-web-vitals', "plugin:prettier/recommended",],
+    extends: ['plugin:@typescript-eslint/recommended', 'next/core-web-vitals', 'plugin:prettier/recommended'],
     parserOptions: {
         ecmaFeatures: {
             jsx: true,
@@ -18,7 +18,7 @@ module.exports = {
         sourceType: 'module',
     },
     parser: '@typescript-eslint/parser',
-    plugins: ['react','@typescript-eslint'],
+    plugins: ['react', '@typescript-eslint'],
     rules: {
         // Possible errors
         'no-console': 'warn',
