@@ -1,5 +1,3 @@
-const prettierConfig = require('./.prettierrc.js');
-
 module.exports = {
     root: true,
     env: {
@@ -18,7 +16,7 @@ module.exports = {
         sourceType: 'module',
     },
     parser: '@typescript-eslint/parser',
-    plugins: ['react', '@typescript-eslint'],
+    plugins: ['react', '@typescript-eslint', 'prettier'],
     rules: {
         // Possible errors
         'no-console': 'warn',
@@ -76,7 +74,7 @@ module.exports = {
         ],
         'react-hooks/rules-of-hooks': 'error',
         'react-hooks/exhaustive-deps': 'warn',
-        'prettier/prettier': ['error', prettierConfig],
+        'prettier/prettier': 'error',
     },
     settings: {
         react: {

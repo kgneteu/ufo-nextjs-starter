@@ -39,7 +39,8 @@
     "*.{js,tsx}": [
       "prettier --list-different",
       "eslint"
-    ]
+    ],
+    "*.js": "eslint --cache --fix"
   },
   "scripts": {
     "dev": "next dev",
@@ -51,7 +52,6 @@
     "test:ci": "jest --ci --config ./tests.unit/config/jest.config.mjs",
     "test:e2e": "playwright test --project=chromium --headed --config ./tests.e2e/config/playwright.config.js",
     "test:e2e:ci": "playwright test --project=chromium --config ./tests.e2e/config/playwright.ci.config.js",
-    "prepare": "husky install",
     "coverage": "jest --coverage --config ./tests.unit/config/jest.config.mjs",
     "analyze": "cross-env ANALYZE=true yarn build"
   },
