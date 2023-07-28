@@ -2,7 +2,7 @@ import { GetStaticProps } from 'next';
 import T from '@/components/shared/t';
 
 export default function Home() {
-    const a = 5;
+    const a = 56;
     return (
         <main>
             <T id={'home.hello'} />
