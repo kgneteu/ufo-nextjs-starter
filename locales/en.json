@@ -10,5 +10,9 @@
         "pl": "Polish",
         "en": "English",
         "changeLanguageHint": "Change language"
+    },
+    "error": {
+        "error404": "404 - Page Not Found!",
+        "error500": "500 - Server error occurred"
     }
 }

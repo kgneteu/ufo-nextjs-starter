@@ -1,7 +1,7 @@
 import { GetStaticProps } from 'next';
 
-export default function Custom404() {
-    return <h1>500 - Server-side error occurred</h1>;
+export default function Error500Page() {
+    return <h1>500 - Server error occurred</h1>;
 }
 
 export const getStaticProps: GetStaticProps = async context => {

@@ -1,6 +1,6 @@
 import { GetStaticProps } from 'next';
 
-export default function Custom404() {
+export default function Error404Page() {
     return <h1>404 - Page Not Found</h1>;
 }
 

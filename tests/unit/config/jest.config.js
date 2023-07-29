@@ -10,10 +10,11 @@ const customJestConfig = {
     setupFilesAfterEnv: ['<rootDir>/tests/unit/config/jest.setup.js'],
     moduleNameMapper: {
         '^.+\\.(svg)$': '<rootDir>/tests/unit/mocks/svg.ts',
+        '@/locales/en.json': '<rootDir>/locales/en.json',
     },
     moduleDirectories: ['node_modules', '<rootDir>/'],
     testEnvironment: 'jest-environment-jsdom',
-    roots: ['./components'],
+    roots: ['./components', './pages', './tests/unit/tests'],
     collectCoverageFrom: ['pages/**/*.{js,jsx,ts,tsx}', 'components/**/*.{js,jsx,ts,tsx}', '!**/node_modules/**'],
     coverageDirectory: './tests/unit/coverage',
 };

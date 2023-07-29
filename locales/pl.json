@@ -10,5 +10,9 @@
     "pl": "Polski",
     "en": "Angielski",
     "changeLanguageHint": "Zmień język"
+  },
+  "error": {
+    "error404": "404 - Strona nie istnieje!",
+    "error500": "500 - Błąd serwera"
   }
 }
