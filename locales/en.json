@@ -3,10 +3,10 @@
         "home": "home",
         "hello": "Hello!"
     },
-    "Footer": {
+    "footer": {
         "copyright": "© Copyright M. Zdolski. MIT Licence."
     },
-    "Menu": {
+    "menu": {
         "pl": "Polish",
         "en": "English",
         "changeLanguageHint": "Change language"

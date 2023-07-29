@@ -1,9 +1,9 @@
 import LightModeButton from '@/components/layout/lightModeButton';
 import LocaleButton from '@/components/layout/localeButton';
-import AccountIcon from '../../assets/icons/account.svg';
+import AccountIcon from '../../../assets/icons/account.svg';
 
 import Link from 'next/link';
-import { Logo } from '@/components/layout/logo';
+import { Logo } from '@/components/layout/logo/logo';
 
 function SignInButton() {
     // const session = useSession();

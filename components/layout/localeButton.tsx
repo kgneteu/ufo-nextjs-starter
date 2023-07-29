@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import { DropDownButton, DropDownButtonItem } from '@/components/shared/dropDownButton';
+import { DropDownButton, DropDownButtonItem } from '@/components/UI/dropDownButton';
 import PLIcon from '../../assets/icons/pl.svg';
 import ENIcon from '../../assets/icons/en.svg';
 import { useTranslations } from 'next-intl';
@@ -12,7 +12,7 @@ export default function LocaleButton() {
     const localeMenu: DropDownButtonItem[] = [
         {
             key: 'pl',
-            title: t('Menu.pl'),
+            title: t('menu.pl'),
             icon: (
                 <div className='w-8 h-8 rounded-full border-2 overflow-hidden'>
                     <PLIcon className={'h-full'} />
@@ -21,7 +21,7 @@ export default function LocaleButton() {
         },
         {
             key: 'en',
-            title: t('Menu.en'),
+            title: t('menu.en'),
             icon: (
                 <div className={'w-8 h-8 rounded-full border-2 overflow-hidden'}>
                     <ENIcon className={'h-full -ml-[5px]'} />

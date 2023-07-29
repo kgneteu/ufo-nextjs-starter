@@ -1,9 +1,11 @@
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
     enabled: process.env.ANALYZE === 'true',
 });
 
 const nextConfig = {
     reactStrictMode: true,
+    eslint: { ignoreDuringBuilds: true },
     webpack(config) {
         // Grab the existing rule that handles SVG imports
         const fileLoaderRule = config.module.rules.find(rule => rule.test?.test?.('.svg'));
@@ -34,9 +36,3 @@ const nextConfig = {
 };
 
 module.exports = withBundleAnalyzer(nextConfig);
-
-// i18n: {
-//     locales: ['en', 'pl', 'default'],
-//         defaultLocale: 'default',
-//         localeDetection: true,
-// },

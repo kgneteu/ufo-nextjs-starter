@@ -15,9 +15,12 @@
     "@svgr/webpack": "^8.0.1",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^14.0.0",
+    "@types/jest": "^29.5.3",
+    "@types/lodash": "^4.14.196",
     "@types/node": "20.4.5",
     "@types/react": "18.2.17",
     "@types/react-dom": "18.2.7",
+    "@types/testing-library__jest-dom": "^5.14.9",
     "@typescript-eslint/eslint-plugin": "^6.2.0",
     "@typescript-eslint/parser": "^6.2.0",
     "autoprefixer": "10.4.14",
@@ -45,12 +48,12 @@
     "export": "next export",
     "lint": "next lint",
     "lint:fix": "eslint --fix pages",
-    "test": "jest --watch --config ./tests.unit/config/jest.config.mjs",
-    "test:ci": "jest --ci --config ./tests.unit/config/jest.config.mjs",
+    "test": "jest --config ./tests/unit/config/jest.config.js",
+    "test:ci": "jest --ci --config ./tests/unit/config/jest.config.js",
     "test:e2e": "playwright test --project=chromium --headed --config ./tests.e2e/config/playwright.config.js",
     "test:e2e:ci": "playwright test --project=chromium --config ./tests.e2e/config/playwright.ci.config.js",
-    "coverage": "jest --coverage --config ./tests.unit/config/jest.config.mjs",
-    "analyze": "cross-env ANALYZE=true yarn build"
+    "coverage": "jest --coverage --config ./tests/unit/config/jest.config.js",
+    "analyze": "cross-env ANALYZE=true next build"
   },
   "version": "0.1.0"
 }

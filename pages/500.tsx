@@ -1,12 +1,7 @@
 import { GetStaticProps } from 'next';
-import T from '@/components/UI/t';
 
-export default function Home() {
-    return (
-        <main>
-            <T id={'home.hello'} />
-        </main>
-    );
+export default function Custom404() {
+    return <h1>500 - Server-side error occurred</h1>;
 }
 
 export const getStaticProps: GetStaticProps = async context => {
