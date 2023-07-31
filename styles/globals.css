@@ -1,5 +1,4 @@
 @import url('fonts.css');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -16,6 +15,4 @@ body:not([data-scroll='0']) header {
     @apply shadow-md dark:shadow-gray-900;
 }
 
-main {
-    @apply mt-14;
-}
+@import url('ui.css');

@@ -3,13 +3,13 @@ import { getStaticProps } from '@/pages/404';
 import { pick } from 'lodash';
 import messages from '@/locales/en.json';
 import { NextIntlClientProvider } from 'next-intl';
-import Error404Page from '@/pages/404';
+import Custom404 from '@/pages/404';
 
 describe('Error404', () => {
     test('should render', () => {
         render(
             <NextIntlClientProvider locale='en' messages={pick(messages, ['error'])}>
-                <Error404Page />
+                <Custom404 />
             </NextIntlClientProvider>
         );
         expect(screen.getByText(/not found/i)).toBeInTheDocument();

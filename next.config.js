@@ -33,6 +33,8 @@ const nextConfig = {
         defaultLocale: 'en',
         localeDetection: false,
     },
+
+    poweredByHeader: false,
 };
 
 module.exports = withBundleAnalyzer(nextConfig);

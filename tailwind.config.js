@@ -1,4 +1,4 @@
-/** @type {import('tailwindcss').Config} */
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
@@ -12,7 +12,11 @@ module.exports = {
         fontFamily: {
             sans: ['Roboto', ...defaultTheme.fontFamily.sans],
         },
-        extend: {},
+        extend: {
+            colors: {
+                primary: '#1976d2',
+            },
+        },
     },
     plugins: [],
 };
