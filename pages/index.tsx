@@ -18,10 +18,10 @@ export default function Home() {
     const {
         register,
         handleSubmit,
-        formState: { errors },
+        // formState: { errors },
     } = useForm();
     const onSubmit = data => console.log('dat', data);
-    console.log('err', errors);
+
     return (
         <div className={'container'}>
             <h1 className={'my-4'}>
@@ -29,6 +29,7 @@ export default function Home() {
             </h1>
             <form className={'flex flex-col gap-4'} onSubmit={handleSubmit(onSubmit)}>
                 <TextInput
+                    // errors={errors}
                     placeholder='Enter Your First name'
                     title='First name'
                     {...register('First name', { required: true, maxLength: 80 })}
@@ -86,3 +87,9 @@ export default function Home() {
 export const getStaticProps: GetStaticProps = async context => {
     return getLocaleProps(context);
 };
+
+// export const getStaticPaths = async () => {
+//     const paths: string[] = [];
+//     console.log('called');
+//     return { paths, fallback: false };
+// };
