@@ -1,30 +1,16 @@
-import { ChangeHandler } from 'react-hook-form';
 import { forwardRef } from 'react';
-
-interface TextInputProps {
-    onChange?: ChangeHandler;
-    max?: string | number;
-    minLength?: number;
-    pattern?: string;
-    title?: string;
-    required?: boolean;
-    onBlur?: ChangeHandler;
-    min?: string | number;
-    name: string;
-    disabled?: boolean;
-    placeholder?: string;
-    maxLength?: number;
-}
+import { TextInputProps } from '@/components/UI/textInput/textInput';
 
 export const TelInput = forwardRef<HTMLInputElement, TextInputProps>((props: TextInputProps, ref) => {
-    const { title, name, ...other } = props;
+    const { title, name, error, ...other } = props;
     const elemId = name;
     return (
-        <div className={'FormControl'}>
+        <div className={'FormControl UITelInput'}>
             <input className={'FormInput'} id={elemId} name={name} ref={ref} type='tel' {...other} />
             <label className={'FormLabel'} htmlFor={elemId}>
                 {title}
             </label>
+            {error && <div className={'FormErrorText'}>{error}</div>}
         </div>
     );
 });

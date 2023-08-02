@@ -13,15 +13,34 @@ import { DateTimeInput } from '@/components/UI/dateTimeInput/dateTimeInput';
 import { TimeInput } from '@/components/UI/timeInput/timeInput';
 import { Checkbox } from '@/components/UI/checkbox/checkbox';
 import { Select } from '@/components/UI/select/select';
+import * as yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
 
 export default function Home() {
+    const schema = yup.object({
+        firstName: yup.string().required(),
+        age: yup.number().min(18).max(120).required(),
+        email: yup.string().email().required(),
+        website: yup.string().url().required(),
+        date: yup.date().required(),
+        phone: yup.string().required(),
+        startDate: yup.date().required(),
+        endTime: yup.date().required(),
+        title: yup.string().min(8).max(32).required(),
+    });
+
+    type FormData = yup.InferType<typeof schema>;
+
     const {
         register,
         handleSubmit,
-        // formState: { errors },
-    } = useForm();
-    const onSubmit = data => console.log('dat', data);
-
+        formState: { errors },
+    } = useForm<FormData>({
+        mode: 'onBlur',
+        resolver: yupResolver(schema),
+    });
+    const onSubmit = (data: FormData) => console.log('dat', data);
+    console.log(errors);
     return (
         <div className={'container'}>
             <h1 className={'my-4'}>
@@ -29,49 +48,56 @@ export default function Home() {
             </h1>
             <form className={'flex flex-col gap-4'} onSubmit={handleSubmit(onSubmit)}>
                 <TextInput
-                    // errors={errors}
+                    error={errors.firstName?.message}
                     placeholder='Enter Your First name'
                     title='First name'
-                    {...register('First name', { required: true, maxLength: 80 })}
+                    {...register('firstName', { required: true, maxLength: 4 })}
                 />
                 <NumberInput
+                    error={errors.age?.message}
                     placeholder='Enter your age'
                     title={'Age'}
-                    {...register('Age', { required: true, maxLength: 100 })}
+                    {...register('age', { required: true, maxLength: 100 })}
                 />
                 <EmailInput
+                    error={errors.email?.message}
                     placeholder='Enter your email'
                     title={'Email'}
-                    {...register('email', { required: true, maxLength: 100 })}
+                    {...register('email')}
                 />
                 <UrlInput
+                    error={errors.website?.message}
                     placeholder='Enter your website address'
                     title={'Website'}
                     {...register('website', { required: true, maxLength: 100 })}
                 />
                 <DateInput
+                    error={errors.date?.message}
                     placeholder='Enter your date of birth'
                     title={'Date of Birth'}
                     {...register('date', { required: true, maxLength: 100 })}
                 />
                 <TelInput
+                    error={errors.phone?.message}
                     placeholder='Enter phone number'
                     title={'Telephone'}
                     {...register('phone', { required: true, maxLength: 100 })}
                 />
                 <DateTimeInput
+                    error={errors.startDate?.message}
                     placeholder='Enter start date'
                     title={'Start Date'}
                     {...register('startDate', { required: true, maxLength: 100 })}
                 />
                 <TimeInput
+                    error={errors.endTime?.message}
                     placeholder='Enter end time'
                     title={'End Time'}
                     {...register('endTime', { required: true, maxLength: 100 })}
                 />
                 <Checkbox title={'Yes, I agree!'} {...register('phone', { required: true })} />
 
-                <Select {...register('Title', { required: true })}>
+                <Select {...register('title', { required: true })}>
                     <option value='Mr'>Mr</option>
                     <option value='Mrs'>Mrs</option>
                     <option value='Miss'>Miss</option>

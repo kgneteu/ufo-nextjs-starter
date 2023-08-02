@@ -39,3 +39,7 @@
 .FormControl:focus-within .FormSelect {
     @apply outline-primary outline-2 border-2 border-primary
 }
+
+.FormControl .FormErrorText {
+    @apply text-sm text-red-700;
+}
