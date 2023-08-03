@@ -15,9 +15,14 @@
 
 
 .FormControl .FormInput {
-    @apply outline  hover:outline-black/75 focus:outline-primary outline-1 focus:outline-2 p-4 rounded box-border w-full;
+    @apply p-4 rounded box-border w-full outline outline-1;
+
     @apply outline-border/25;
 
+    @apply focus:outline-primary focus:hover:outline-primary  focus:outline-2 dark:focus:outline-primary;
+
+    @apply dark:hover:focus:outline-primary-light;
+    @apply hover:outline-border/75 dark:hover:outline-border-dark/75;
 }
 
 .FormControl.Error .FormInput {
@@ -25,21 +30,31 @@
     @apply dark:outline-error-dark dark:focus:outline-error-dark;
 }
 
-.FormControl .FormLabel {
-    @apply absolute left-1 -top-3  px-1 transition-all delay-100 ease-in scale-75 text-primary bg-white dark:bg-black;
-}
-
-.FormControl.Error .FormLabel {
-    @apply text-error dark:text-error-dark;
-}
-
-.FormControl:not(:focus-within) input:placeholder-shown + label {
-    @apply top-4 text-black dark:text-white scale-100 left-3;
-}
 
 
 .FormControl .FormErrorText {
     @apply text-sm text-error dark:text-error-dark;
+}
+
+
+.FormControl .FormLabel {
+    @apply absolute text-black dark:text-white ;
+}
+
+.FormControl:focus-within .FormLabel {
+   @apply text-primary dark:text-primary-dark;
+}
+
+.FormControl:not(:focus-within) input:placeholder-shown + label {
+    @apply top-4 scale-100 left-3;
+}
+
+.FormControl .FormLabel {
+    @apply left-1 -top-3  px-1 transition-all delay-100 ease-in scale-75 bg-white dark:bg-black;
+}
+
+.FormControl.Error .FormLabel {
+    @apply text-error dark:text-error-dark;
 }
 
 
