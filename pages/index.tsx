@@ -42,16 +42,16 @@ export default function Home() {
     const onSubmit = (data: FormData) => console.log('dat', data);
     console.log(errors);
     return (
-        <div className={'container'}>
+        <div className={'container mx-auto'}>
             <h1 className={'my-4'}>
                 <T id={'home.hello'} />
             </h1>
-            <form className={'flex flex-col gap-4'} onSubmit={handleSubmit(onSubmit)}>
+            <form className={'flex flex-col gap-4 w-full'} onSubmit={handleSubmit(onSubmit)}>
                 <TextInput
                     error={errors.firstName?.message}
                     placeholder='Enter Your First name'
                     title='First name'
-                    {...register('firstName', { required: true, maxLength: 4 })}
+                    {...register('firstName')}
                 />
                 <NumberInput
                     error={errors.age?.message}

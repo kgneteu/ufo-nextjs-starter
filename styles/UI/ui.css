@@ -1,0 +1,75 @@
+.FormControl {
+    @apply relative;
+}
+
+.FormControl input::placeholder {
+    @apply transition-colors delay-200 ease-in-out;
+}
+
+.FormControl input:not(:focus)::placeholder {
+    @apply text-transparent;
+}
+
+
+
+
+
+.FormControl .FormInput {
+    @apply outline  hover:outline-black/75 focus:outline-primary outline-1 focus:outline-2 p-4 rounded box-border w-full;
+    @apply outline-border/25;
+
+}
+
+.FormControl.Error .FormInput {
+    @apply outline-error focus:outline-error;
+    @apply dark:outline-error-dark dark:focus:outline-error-dark;
+}
+
+.FormControl .FormLabel {
+    @apply absolute left-1 -top-3  px-1 transition-all delay-100 ease-in scale-75 text-primary bg-white dark:bg-black;
+}
+
+.FormControl.Error .FormLabel {
+    @apply text-error dark:text-error-dark;
+}
+
+.FormControl:not(:focus-within) input:placeholder-shown + label {
+    @apply top-4 text-black dark:text-white scale-100 left-3;
+}
+
+
+.FormControl .FormErrorText {
+    @apply text-sm text-error dark:text-error-dark;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.FormControl button {
+    @apply bg-primary text-center block px-4 py-1.5 w-full text-white rounded shadow hover:shadow-lg;
+}
+
+.FormControl .FormCheckbox {
+    @apply bg-primary w-6 h-6;
+}
+
+.FormControl .FormSelect {
+    @apply w-full p-4 border border-black outline-0 rounded m-0 focus:outline-primary focus:outline-2;
+}
+
+
+.FormControl:focus-within .FormSelect {
+    @apply outline-primary outline-2 border-2 border-primary
+}
+

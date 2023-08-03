@@ -5,7 +5,7 @@ export const UrlInput = forwardRef<HTMLInputElement, TextInputProps>((props: Tex
     const { title, name, error, ...other } = props;
     const elemId = name;
     return (
-        <div className={'FormControl UIUrlInput'}>
+        <div className={`FormControl UIUrlInput ${error && 'Error'}`}>
             <input className={'FormInput'} id={elemId} name={name} ref={ref} type='url' {...other} />
             <label className={'FormLabel'} htmlFor={elemId}>
                 {title}

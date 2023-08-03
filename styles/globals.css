@@ -15,4 +15,4 @@ body:not([data-scroll='0']) header {
     @apply shadow-md dark:shadow-gray-900;
 }
 
-@import url('ui.css');
+@import url('UI/ui.css');

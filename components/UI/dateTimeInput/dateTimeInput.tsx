@@ -5,7 +5,7 @@ export const DateTimeInput = forwardRef<HTMLInputElement, TextInputProps>((props
     const { title, name, error, ...other } = props;
     const elemId = name;
     return (
-        <div className={'FormControl UIDateTimeInput'}>
+        <div className={`FormControl UIDateTimeInput ${error && 'Error'}`}>
             <input className={'FormInput'} id={elemId} name={name} ref={ref} type='datetime-local' {...other} />
             <label className={'FormLabel'} htmlFor={elemId}>
                 {title}

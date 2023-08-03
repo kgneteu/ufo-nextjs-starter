@@ -5,7 +5,7 @@ export const DateInput = forwardRef<HTMLInputElement, TextInputProps>((props: Te
     const { title, name, error, ...other } = props;
     const elemId = name;
     return (
-        <div className={'FormControl UIDateInput'}>
+        <div className={`FormControl UIDateInput ${error && 'Error'}`}>
             <input className={'FormInput'} id={elemId} name={name} ref={ref} type='date' {...other} />
             <label className={'FormLabel'} htmlFor={elemId}>
                 {title}

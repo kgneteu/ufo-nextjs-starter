@@ -21,7 +21,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>((props: Te
     const { title, name, error, ...other } = props;
     const elementId = name;
     return (
-        <div className={'FormControl UITextInput'}>
+        <div className={`FormControl UITextInput ${error && 'Error'}`}>
             <input
                 aria-invalid={!!error}
                 className={'FormInput'}

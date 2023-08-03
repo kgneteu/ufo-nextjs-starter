@@ -5,7 +5,7 @@ export const EmailInput = forwardRef<HTMLInputElement, TextInputProps>((props: T
     const { title, name, error, ...other } = props;
     const elemId = name;
     return (
-        <div className={'FormControl UIFormEmailInput'}>
+        <div className={`FormControl UIFormEmailInput ${error && 'Error'}`}>
             <input className={'FormInput'} formNoValidate id={elemId} name={name} ref={ref} type='email' {...other} />
             <label className={'FormLabel'} htmlFor={elemId}>
                 {title}

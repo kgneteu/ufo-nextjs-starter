@@ -5,7 +5,7 @@ export const TelInput = forwardRef<HTMLInputElement, TextInputProps>((props: Tex
     const { title, name, error, ...other } = props;
     const elemId = name;
     return (
-        <div className={'FormControl UITelInput'}>
+        <div className={`FormControl UITelInput ${error && 'Error'}`}>
             <input className={'FormInput'} id={elemId} name={name} ref={ref} type='tel' {...other} />
             <label className={'FormLabel'} htmlFor={elemId}>
                 {title}
