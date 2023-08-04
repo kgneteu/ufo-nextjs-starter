@@ -1,39 +1,31 @@
-import { ChangeHandler } from 'react-hook-form';
-import { forwardRef } from 'react';
+import { forwardRef, HTMLProps } from 'react';
 
-export interface TextInputProps {
-    onChange?: ChangeHandler;
-    max?: string | number;
-    minLength?: number;
-    pattern?: string;
-    title?: string;
-    required?: boolean;
-    onBlur?: ChangeHandler;
-    min?: string | number;
-    name: string;
-    disabled?: boolean;
-    placeholder?: string;
-    maxLength?: number;
+export interface TextInputProps extends Omit<HTMLProps<HTMLInputElement>, 'ref'> {
     error?: string;
 }
 
 export const TextInput = forwardRef<HTMLInputElement, TextInputProps>((props: TextInputProps, ref) => {
-    const { title, name, error, ...other } = props;
+    const { title, name, error, className = 'UITextInput', type = 'text', ...other } = props;
     const elementId = name;
     return (
-        <div className={`FormControl UITextInput ${error && 'Error'}`}>
-            <input
-                aria-invalid={!!error}
-                className={'FormInput'}
-                id={elementId}
-                name={name}
-                ref={ref}
-                type='text'
-                {...other}
-            />
-            <label className={'FormLabel'} htmlFor={elementId}>
-                {title}
-            </label>
+        <div className={`FormControlWrapper ${className}`}>
+            <div className={`FormControl ${error && 'Error'} `}>
+                <input
+                    aria-invalid={!!error}
+                    className={'FormInput'}
+                    id={elementId}
+                    name={name}
+                    ref={ref}
+                    type={type}
+                    {...other}
+                />
+                <label className={'FormLabel'} htmlFor={elementId}>
+                    {title}
+                </label>
+                <fieldset className={'FormFieldset'}>
+                    <legend className={'FormFieldsetLegend'}>{title}</legend>
+                </fieldset>
+            </div>
             {error && <div className={'FormErrorText'}>{error}</div>}
         </div>
     );

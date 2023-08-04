@@ -42,7 +42,7 @@ export default function Home() {
     const onSubmit = (data: FormData) => console.log('dat', data);
     console.log(errors);
     return (
-        <div className={'container mx-auto'}>
+        <div className={'container mx-auto dark:bg-gray-700'}>
             <h1 className={'my-4'}>
                 <T id={'home.hello'} />
             </h1>

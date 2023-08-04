@@ -5,7 +5,7 @@ import { Main } from '@/components/layout/main/main';
 
 export function Layout({ children }: { children: ReactNode }) {
     return (
-        <div className={'flex min-h-screen flex-col items-center justify-between dark:bg-gray-800 dark:text-gray-300'}>
+        <div className={'flex min-h-screen flex-col items-center justify-between'}>
             <Header />
             <Main>{children}</Main>
             <Footer />

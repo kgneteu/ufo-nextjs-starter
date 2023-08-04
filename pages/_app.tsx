@@ -4,23 +4,11 @@ import { NextIntlProvider } from 'next-intl';
 import { SessionProvider } from 'next-auth/react';
 import { Layout } from '@/components/layout/layout/layout';
 import { ThemeProvider } from 'next-themes';
+const defMessages = {
+    message: '',
+};
 
-// const m = {
-//     home: {
-//         home: 'home',
-//         hello: 'Hello!',
-//     },
-//     footer: {
-//         copyright: '© Copyright M. Zdolski. MIT Licence.',
-//     },
-//     menu: {
-//         pl: 'Polish',
-//         en: 'English',
-//         changeLanguageHint: 'Change language',
-//     },
-// };
-
-export default function App({ Component, pageProps: { session, messages, ...pageProps } }: AppProps) {
+export default function App({ Component, pageProps: { session, messages = defMessages, ...pageProps } }: AppProps) {
     // let timeout: number;
     // useEffect(() => {
     //     const scrollSaver = () => {

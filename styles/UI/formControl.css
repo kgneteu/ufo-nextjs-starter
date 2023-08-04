@@ -1,0 +1,11 @@
+.FormControl {
+    @apply relative;
+}
+
+.FormControl input::placeholder {
+    @apply transition-colors delay-100 ease-in-out;
+}
+
+.FormControl input:not(:focus)::placeholder {
+    @apply text-transparent;
+}

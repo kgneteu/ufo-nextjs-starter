@@ -1,16 +1,6 @@
 import { forwardRef } from 'react';
-import { TextInputProps } from '@/components/UI/textInput/textInput';
+import { TextInput, TextInputProps } from '@/components/UI/textInput/textInput';
 
 export const DateInput = forwardRef<HTMLInputElement, TextInputProps>((props: TextInputProps, ref) => {
-    const { title, name, error, ...other } = props;
-    const elemId = name;
-    return (
-        <div className={`FormControl UIDateInput ${error && 'Error'}`}>
-            <input className={'FormInput'} id={elemId} name={name} ref={ref} type='date' {...other} />
-            <label className={'FormLabel'} htmlFor={elemId}>
-                {title}
-            </label>
-            {error && <div className={'FormErrorText'}>{error}</div>}
-        </div>
-    );
+    return <TextInput ref={ref} {...{ ...props, type: 'date', className: 'UIDateInput' }} />;
 });
