@@ -40,9 +40,8 @@ export default function Home() {
         resolver: yupResolver(schema),
     });
     const onSubmit = (data: FormData) => console.log('dat', data);
-    console.log(errors);
     return (
-        <div className={'container mx-auto dark:bg-gray-700'}>
+        <div className={'container mx-auto'}>
             <h1 className={'my-4'}>
                 <T id={'home.hello'} />
             </h1>

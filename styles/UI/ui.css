@@ -48,7 +48,7 @@
 }
 
 .FormControl:not(:focus-within) input:placeholder-shown + label {
-    @apply top-4 scale-100 left-3;
+    @apply top-4 scale-100 left-4;
 }
 
 
@@ -68,7 +68,7 @@
 
 
 .FormControl .FormSelect {
-    @apply w-full p-4 border border-border/25 dark:border-border-dark/25 outline-0 bg-transparent rounded;
+    @apply w-full p-4 border border-border/25 dark:border-border-dark/25 outline-0 rounded bg-[ButtonFace];
     @apply hover:border-border/75 dark:hover:border-border-dark/75;
     /*@apply rounded m-0 focus:outline-primary focus:outline-1 ;*/
     @apply focus:border-primary dark:focus:border-primary-dark;

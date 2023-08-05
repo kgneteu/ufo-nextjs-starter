@@ -4,6 +4,7 @@ import NextAuth, { NextAuthOptions } from 'next-auth';
 // import GithubProvider from 'next-auth/providers/github';
 // import TwitterProvider from 'next-auth/providers/twitter';
 import CredentialsProvider from 'next-auth/providers/credentials';
+import axios from 'axios';
 
 // For more information on each option (and a full list of options) go to
 // https://next-auth.js.org/configuration/options
@@ -35,26 +36,13 @@ export const authOptions: NextAuthOptions = {
             },
 
             async authorize(credentials) {
-                console.log(credentials);
                 try {
-                    console.log('HERE', process.env.API_SIGNIN_URL);
-                    const res = await fetch('http://localhost:9000/api/user/login', {
-                        method: 'POST',
-                        credentials: 'include',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify({ email: 'admin@admin.com', password: 'password' }),
+                    const res = await axios.post(process.env.API_SIGNIN_URL || '', {
+                        email: credentials?.email,
+                        password: credentials?.password,
                     });
-
-                    const onet = await fetch('https://www.onet.pl');
-                    console.log(onet);
-
-                    console.log(res);
-                    if (res.ok) {
-                        const apiUser = await res.json();
-                        console.log('u', apiUser.token);
-                        console.log('r', apiUser.refresh_token);
+                    if (res.status === 200) {
+                        const apiUser = res.data;
                         const user = {
                             id: apiUser.user.id,
                             email: apiUser.user.email,
@@ -87,3 +75,8 @@ export const authOptions: NextAuthOptions = {
 };
 
 export default NextAuth(authOptions);
+
+// const authHandler = NextAuth(authOptions);
+// export default async function handler(...params: any[]) {
+//     await authHandler(...params);
+// }
