@@ -2,14 +2,16 @@ import { forwardRef, HTMLProps } from 'react';
 
 export interface TextInputProps extends Omit<HTMLProps<HTMLInputElement>, 'ref'> {
     error?: string;
+    fullWidth?: boolean;
 }
 
 export const TextInput = forwardRef<HTMLInputElement, TextInputProps>((props: TextInputProps, ref) => {
-    const { title, name, error, className = 'UITextInput', type = 'text', ...other } = props;
+    const { fullWidth = true, title, name, error, className = 'UITextInput', type = 'text', ...other } = props;
     const elementId = name;
+    const customClasses = fullWidth ? 'w-full' : '';
     return (
-        <div className={`FormControlWrapper ${className}`}>
-            <div className={`FormControl ${error && 'Error'} `}>
+        <div className={`FormControlWrapper ${className} ${customClasses}`}>
+            <div className={`FormControl${error ? ' Error' : ''}`}>
                 <input
                     aria-invalid={!!error}
                     className={'FormInput'}

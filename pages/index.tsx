@@ -45,7 +45,7 @@ export default function Home() {
             <h1 className={'my-4'}>
                 <T id={'home.hello'} />
             </h1>
-            <form className={'flex flex-col gap-4 w-full'} onSubmit={handleSubmit(onSubmit)}>
+            <form className={'flex gap-4 w-full'} onSubmit={handleSubmit(onSubmit)}>
                 <TextInput
                     error={errors.firstName?.message}
                     placeholder='Enter Your First name'
