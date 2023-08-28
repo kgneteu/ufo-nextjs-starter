@@ -1,3 +1,5 @@
+@import url('./palette.css');
+@import url('./button.css');
 
 .FormControl .FormInput {
     @apply p-4 box-border w-full bg-transparent outline-none;
@@ -18,7 +20,7 @@
 }
 
 .FormControl.Error .FormFieldset {
-    @apply border-error dark:border-error-dark;
+    @apply border-error dark:border-error-light;
 }
 
 .FormControl .FormFieldsetLegend {
@@ -31,7 +33,7 @@
 }
 
 .FormControlWrapper .FormErrorText {
-    @apply text-error dark:text-error-dark scale-75 origin-left;
+    @apply text-error dark:text-error-light scale-75 origin-left;
 }
 
 .FormControl .FormLabel {
@@ -53,30 +55,63 @@
 
 
 .FormControl.Error .FormLabel {
-    @apply text-error dark:text-error-dark;
+    @apply text-error dark:text-error-light;
 }
 
 
-.FormControl button {
-    @apply bg-primary dark:bg-primary-dark text-center block px-4 py-1.5 w-full text-white rounded shadow hover:shadow-lg;
-}
 
 .FormControl .FormCheckbox {
     @apply bg-transparent accent-primary dark:accent-primary-dark w-6 h-6;
 }
 
 
+span.ripple {
+    position: absolute;
+    border-radius: 50%;
+    transform: scale(0);
+    animation: ripple 600ms linear;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+@keyframes ripple {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 .FormControl .FormSelect {
-    @apply w-full p-4 border border-border/25 dark:border-border-dark/25 outline-0 rounded bg-[ButtonFace];
+    @apply w-full p-4 border border-border/25 dark:border-border-dark/25 outline-0 rounded bg-[ButtonFace] bg-transparent;
     @apply hover:border-border/75 dark:hover:border-border-dark/75;
     /*@apply rounded m-0 focus:outline-primary focus:outline-1 ;*/
     @apply focus:border-primary dark:focus:border-primary-dark;
     @apply active:border-primary dark:focus:border-primary-dark;
+    appearance: none;
+    outline: 0;
+    background: green;
+    background-image: none;
+    width: 100%;
+    height: 100%;
+    color: black;
+    cursor: pointer;
+    border: 1px solid black;
+    border-radius: 3px;
 }
 
 .FormControl .FormSelect option {
-    @apply text-black;
+    /*@apply text-black;*/
     /*@apply dark:bg-border/75;*/
 }
 

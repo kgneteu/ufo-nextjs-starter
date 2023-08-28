@@ -23,15 +23,19 @@ module.exports = {
                 transparent: 'transparent',
                 current: 'currentColor',
                 primary: {
-                    DEFAULT: colors.sky['600'],
-                    dark: colors.sky['400'],
-                    light: colors.sky['500'],
+                    DEFAULT: 'var(--uui-color-primary)',
+                    dark: 'var(--uui-color-primary-dark)',
+                    light: 'var(--uui-color-primary-light)',
                 },
-                secondary: colors.emerald['300'],
+                secondary: {
+                    DEFAULT: 'var(--uui-color-secondary)',
+                    dark: 'var(--uui-color-secondary-dark)',
+                    light: 'var(--uui-color-secondary-light)',
+                },
                 error: {
-                    DEFAULT: colors.red['600'],
-                    dark: colors.red['400'],
-                    light: colors.sky['500'],
+                    DEFAULT: 'var(--uui-color-error)',
+                    dark: 'var(--uui-color-error-dark)',
+                    light: 'var(--uui-color-error-light)',
                 },
                 text: {
                     primary: colors.white,
@@ -56,24 +60,24 @@ module.exports = {
             },
         },
     },
-    plugins: [
-        function ({ addBase, theme }) {
-            function extractColorVars(colorObj, colorGroup = '') {
-                return Object.keys(colorObj).reduce((vars, colorKey) => {
-                    const value = colorObj[colorKey];
-
-                    const newVars =
-                        typeof value === 'string'
-                            ? { [`--color${colorGroup}-${colorKey}`]: value }
-                            : extractColorVars(value, `-${colorKey}`);
-
-                    return { ...vars, ...newVars };
-                }, {});
-            }
-
-            addBase({
-                ':root': extractColorVars(theme('colors')),
-            });
-        },
-    ],
+    // plugins: [
+    //     function ({ addBase, theme }) {
+    //         function extractColorVars(colorObj, colorGroup = '') {
+    //             return Object.keys(colorObj).reduce((vars, colorKey) => {
+    //                 const value = colorObj[colorKey];
+    //
+    //                 const newVars =
+    //                     typeof value === 'string'
+    //                         ? { [`--uui-color${colorGroup}-${colorKey}`]: value }
+    //                         : extractColorVars(value, `-${colorKey}`);
+    //
+    //                 return { ...vars, ...newVars };
+    //             }, {});
+    //         }
+    //
+    //         addBase({
+    //             ':root': extractColorVars(theme('colors')),
+    //         });
+    //     },
+    // ],
 };

@@ -1,0 +1,53 @@
+.FormControl button {
+    @apply overflow-hidden relative;
+    @apply transition-colors ease-in-out duration-300;
+    color: rgb(var(--uui-text-color));
+    font-weight: 500;
+    box-sizing: content-box;
+}
+
+.FormControl.uui-outlined button {
+    @apply border;
+    border-color: rgba(var(--uui-border-color), 0.25);
+}
+
+.FormControl.uui-raised button {
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 1px -2px, rgba(0, 0, 0, 0.14) 0px 2px 2px 0px, rgba(0, 0, 0, 0.12) 0px 1px 5px 0px;
+}
+
+.FormControl.uui-filled button {
+    background: rgb(var(--uui-bg-color));
+    color: rgb(var(--uui-contrast-text));
+}
+
+.dark .FormControl.uui-filled button {
+    background: rgb(var(--uui-bg-color));
+}
+
+/*Hover*/
+
+.FormControl button:hover {
+    background: rgba(var(--uui-text-color), 0.25);
+}
+
+.FormControl.uui-raised button:hover {
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 4px -1px, rgba(0, 0, 0, 0.14) 0px 4px 5px 0px, rgba(0, 0, 0, 0.12) 0px 1px 10px 0px;
+}
+
+.FormControl.uui-outlined button:hover {
+    border-color: rgba(var(--uui-border-color), 1);
+}
+
+.FormControl.uui-filled button:hover {
+    background-color: rgb(var(--uui-bg-color-dark));
+}
+
+/*Shape*/
+
+.FormControl.uui-round button {
+    @apply rounded-full;
+}
+
+.FormControl.uui-rounded button {
+    @apply rounded;
+}
