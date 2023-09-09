@@ -16,5 +16,8 @@ body:not([data-scroll='0']) header {
     @apply shadow-md dark:shadow-gray-900;
 }
 
-@import url('UI/formControl.css');
+@import url('UI/elevation.css');
+@import url('UI/control.css');
+@import url('UI/checkbox.css');
+@import url('UI/input.css');
 @import url('UI/ui.css');

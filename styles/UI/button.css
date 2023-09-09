@@ -1,53 +1,152 @@
-.FormControl button {
+.uui-button {
     @apply overflow-hidden relative;
-    @apply transition-colors ease-in-out duration-300;
+    @apply transition-colors ease-linear duration-200;
     color: rgb(var(--uui-text-color));
     font-weight: 500;
-    box-sizing: content-box;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.1px;
 }
 
-.FormControl.uui-outlined button {
-    @apply border;
-    border-color: rgba(var(--uui-border-color), 0.25);
+.uui-button-state {
+    @apply flex items-center gap-x-2;
 }
 
-.FormControl.uui-raised button {
-    box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 1px -2px, rgba(0, 0, 0, 0.14) 0px 2px 2px 0px, rgba(0, 0, 0, 0.12) 0px 1px 5px 0px;
+.uuu-button-icon, .uuu-button-icon svg, .uuu-button-icon img {
+    @apply w-[18px] h-[18px];
 }
 
-.FormControl.uui-filled button {
+/*Standard button Text*/
+.uui-button:hover .uui-button-state {
+    background: rgba(var(--uui-bg-color), 0.08);
+}
+
+.uui-button:focus .uui-button-state {
+    background: rgba(var(--uui-bg-color), 0.12);
+}
+
+.uui-button:active .uui-button-state {
+    background: rgba(var(--uui-bg-color), 0.16);
+}
+
+/*Outlined*/
+.uui-button.uui-outlined {
+    /*M3/sys/light/outline*/
+    outline-color: rgb(121, 116, 126);
+}
+
+.uui-button.uui-outlined:focus {
+    /*M3/sys/light/outline*/
+    outline-color: rgb(var(--uui-border-color));
+}
+
+.uui-button.uui-outlined:disabled {
+    /* M3/sys/light/on-surface +0.12*/
+    /*outline-color: #1d1b20;*/
+    outline-color: rgba(29, 27, 32, 0.12);
+}
+
+/*Raised*/
+
+.uui-button.uui-elevated,
+.uui-button.uui-raised {
+    /*box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);*/
+}
+
+/*Elevated*/
+.uui-button.uui-elevated {
+    /* M3/sys/light/surface-container-low */
+    background: rgb(247, 242, 250);
+}
+
+.uui-button.uui-elevated:hover .uui-button-state {
+    /* M3/state-layers/light/primary/opacity-0.08 */
+    background: rgba(103, 80, 164, 0.08);
+}
+
+.uui-button.uui-elevated:focus .uui-button-state,
+.uui-button.uui-elevated:active .uui-button-state  {
+    /* M3/state-layers/light/primary/opacity-0.12 */
+    background: rgba(103, 80, 164, 0.12);
+}
+
+/*Tonal*/
+.uui-button.uui-tonal {
+    /* M3/sys/light/secondary-container */
+    background: #E8DEF8;
+
+    /* M3/sys/light/on-secondary-container */
+    color: #1D192B;
+}
+
+.uui-button.uui-tonal:hover .uui-button-state {
+    /* M3/state-layers/light/on-secondary-container/opacity-0.08 */
+    background: rgba(29, 25, 43, 0.08);
+}
+
+.uui-button.uui-tonal:focus .uui-button-state,
+.uui-button.uui-tonal:active .uui-button-state  {
+    /* M3/state-layers/light/on-secondary-container/opacity-0.08 */
+    background: rgba(29, 25, 43, 0.12);
+}
+
+/*Filled*/
+.uui-button.uui-filled {
     background: rgb(var(--uui-bg-color));
     color: rgb(var(--uui-contrast-text));
 }
 
-.dark .FormControl.uui-filled button {
-    background: rgb(var(--uui-bg-color));
+
+.uui-button.uui-filled:hover .uui-button-state {
+    background: rgba(255, 255, 255, 0.08);
 }
 
-/*Hover*/
-
-.FormControl button:hover {
-    background: rgba(var(--uui-text-color), 0.25);
+.uui-button.uui-filled:focus .uui-button-state,
+.uui-button.uui-filled:active .uui-button-state {
+    /* M3/state-layers/light/on-primary/opacity-0.12 */
+    background: rgba(255, 255, 255, 0.12);
 }
 
-.FormControl.uui-raised button:hover {
-    box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 4px -1px, rgba(0, 0, 0, 0.14) 0px 4px 5px 0px, rgba(0, 0, 0, 0.12) 0px 1px 10px 0px;
+
+/*Hover shared*/
+.uui-button.uui-filled:hover,
+.uui-button.uui-tonal:hover {
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
 }
 
-.FormControl.uui-outlined button:hover {
-    border-color: rgba(var(--uui-border-color), 1);
+/*Active shared*/
+.uui-button.uui-elevated:active,
+.uui-button.uui-raised:active,
+.uui-button.uui-tonal:active,
+.uui-button.uui-filled:active {
+    box-shadow: none;
 }
 
-.FormControl.uui-filled button:hover {
-    background-color: rgb(var(--uui-bg-color-dark));
+/*Disabled shared*/
+.uui-button:disabled .uui-button-state {
+    /* M3/sys/light/on-surface */
+    color: rgba(29, 27, 32, 0.38);
+    background: transparent;
 }
 
-/*Shape*/
-
-.FormControl.uui-round button {
-    @apply rounded-full;
+.uui-button.uui-raised:disabled,
+.uui-button.uui-elevated:disabled,
+.uui-button.uui-tonal:disabled,
+.uui-button.uui-filled:disabled{
+    box-shadow: none;
 }
 
-.FormControl.uui-rounded button {
-    @apply rounded;
+.uui-button.uui-filled:disabled,
+.uui-button.uui-tonal:disabled,
+.uui-button.uui-elevated:disabled {
+    /* M3/state-layers/light/on-surface/opacity-0.12` */
+    background: rgba(29, 27, 32, 0.12);
+    /* M3/sys/light/on-surface */
+    color: rgb(29, 27, 32, 0.38);
+}
+
+.uui-button.uui-filled:disabled .uui-button-state,
+.uui-button.uui-tonal:disabled .uui-button-state,
+.uui-button.uui-elevated:disabled .uui-button-state{
+    background: transparent;
 }

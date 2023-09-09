@@ -2,10 +2,14 @@ import { ChangeHandler } from 'react-hook-form';
 import { forwardRef, ReactNode } from 'react';
 import {
     createRipple,
+    ElementBorderWidth,
     ElementColor,
+    ElementElevation,
     ElementShape,
     ElementSize,
+    getBorderClasses,
     getButtonSizeClasses,
+    getElevationClasses,
     getShapeClasses,
 } from '@/components/UI/utils';
 
@@ -16,12 +20,19 @@ export const Button = forwardRef<HTMLButtonElement, ButtonInputProps>((props: Bu
         title,
         name,
         type = 'button',
-        size = 'large',
+        size = 'medium',
+        border = 1,
         children,
         outlined = false,
         filled = false,
+        tonal = false,
+        elevated = false,
         raised = false,
-        shape = 'rounded',
+        shape = 'round',
+        icon,
+        elevation = 1,
+        getSizeClassesFunc,
+        getShapeClassesFunc,
         ...other
     } = props;
 
@@ -35,29 +46,54 @@ export const Button = forwardRef<HTMLButtonElement, ButtonInputProps>((props: Bu
 
     const wrapperClasses: string[] = [];
     const inputClasses: string[] = [];
+    const stateClasses: string[] = [];
 
-    wrapperClasses.push(getShapeClasses(shape));
-    inputClasses.push(getButtonSizeClasses(size));
+    if (getShapeClassesFunc) {
+        inputClasses.push(getShapeClassesFunc(shape));
+    } else {
+        inputClasses.push(getShapeClasses(shape));
+    }
 
+    if (getSizeClassesFunc) {
+        stateClasses.push(getSizeClassesFunc(size));
+    } else {
+        stateClasses.push(getButtonSizeClasses(size));
+    }
+
+    wrapperClasses.push(bgColor);
     if (outlined) {
         wrapperClasses.push(borderColor);
-        wrapperClasses.push('uui-outlined');
+        inputClasses.push(getBorderClasses(border));
+        inputClasses.push('uui-outlined');
+    } else {
+        inputClasses.push(getBorderClasses(0));
     }
 
     if (raised) {
-        wrapperClasses.push('uui-raised');
+        inputClasses.push('uui-raised');
+    }
+
+    if (tonal) {
+        inputClasses.push('uui-tonal');
+    }
+
+    if (elevated) {
+        inputClasses.push('uui-elevated');
+    }
+
+    if (elevated || raised) {
+        inputClasses.push(getElevationClasses(elevation));
     }
 
     if (filled) {
-        wrapperClasses.push(bgColor);
-        wrapperClasses.push('uui-filled');
+        inputClasses.push('uui-filled');
         wrapperClasses.push(contrastTextContrastColor);
     } else {
         wrapperClasses.push(textColor);
     }
 
     return (
-        <div className={'FormControl ' + wrapperClasses.join(' ')}>
+        <div className={`uui-control-wrapper uui-button-wrapper ${wrapperClasses.join(' ')}`}>
             <button
                 id={elemId}
                 name={name}
@@ -65,16 +101,20 @@ export const Button = forwardRef<HTMLButtonElement, ButtonInputProps>((props: Bu
                 ref={ref}
                 type={type}
                 {...other}
-                className={'FormButton  ' + inputClasses.join(' ')}
+                className={'uui-control uui-button  ' + inputClasses.join(' ')}
                 title={title}>
-                {content}
+                <div className={'uui-button-state ' + stateClasses.join(' ')}>
+                    {icon && <div className={'uuu-button-icon'}>{icon}</div>}
+                    {content}
+                </div>
             </button>
         </div>
     );
 });
 
-interface ButtonInputProps {
+export interface ButtonInputProps {
     color?: ElementColor;
+    elevation?: ElementElevation;
     type?: 'button' | 'submit' | 'reset';
     onChange?: ChangeHandler;
     max?: string | number;
@@ -88,7 +128,13 @@ interface ButtonInputProps {
     size?: ElementSize;
     outlined?: boolean;
     filled?: boolean;
+    tonal?: boolean;
+    elevated?: boolean;
     raised?: boolean;
     label?: string;
+    icon?: ReactNode;
     shape?: ElementShape;
+    border?: ElementBorderWidth;
+    getSizeClassesFunc?: (size: ElementSize) => string;
+    getShapeClassesFunc?: (size: ElementShape) => string;
 }

@@ -40,14 +40,14 @@ export function ReactHookFormYupDemo() {
         mode: 'onBlur',
         resolver: yupResolver(schema),
     });
-    const onSubmit = (data: FormData) => console.log('dat', data);
+    const onSubmit = (data: FormData) => console.error('dat', data);
     return (
         <div className={'container mx-auto'}>
             <h1 className={'my-4'}>
                 <T id={'home.hello'} />
             </h1>
             <form className={'flex flex-col gap-4 w-full'} onSubmit={handleSubmit(onSubmit)}>
-                <Button title={'Wyślij'} type={'submit'} />
+                <Button label={'Wyślij'} type={'submit'} />
                 <TextInput
                     error={errors.firstName?.message}
                     placeholder='Enter Your First name'

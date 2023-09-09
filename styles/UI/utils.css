@@ -1,0 +1,32 @@
+.uui-round {
+    @apply rounded-[100px];
+}
+
+.uui-rounded {
+    @apply rounded-[4px];
+}
+
+.uui-rounded-16 {
+    @apply rounded-[16px];
+}
+
+.uui-rounded-28 {
+    @apply rounded-[28px];
+}
+
+.uui-border-1 {
+    @apply outline outline-1 -outline-offset-1;
+}
+.uui-border-2 {
+    @apply outline outline-2 -outline-offset-2;
+}
+.uui-border-3 {
+    @apply outline outline-[3px] -outline-offset-[3px];
+}
+.uui-border-4 {
+    @apply outline outline-4 -outline-offset-4;
+}
+
+.uui-border-none {
+    @apply outline-transparent outline-offset-4;
+}

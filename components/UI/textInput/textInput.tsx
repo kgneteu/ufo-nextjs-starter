@@ -1,37 +1,50 @@
-import { forwardRef, HTMLProps } from 'react';
-import { ElementColor } from '@/components/UI/utils';
+import { forwardRef } from 'react';
+import { uniqueID } from '@/components/UI/utils';
+import { InputProps } from '@/components/UI/types';
 
-export interface TextInputProps extends Omit<HTMLProps<HTMLInputElement>, 'ref'> {
-    error?: string;
-    color?: ElementColor;
+export interface TextInputProps extends InputProps {
+    outlined?: boolean;
+    filled?: boolean;
+    raised?: boolean;
     fullWidth?: boolean;
 }
-
 export const TextInput = forwardRef<HTMLInputElement, TextInputProps>((props: TextInputProps, ref) => {
-    const { fullWidth = true, title, name, error, className = 'UITextInput', type = 'text', ...other } = props;
+    const {
+        label,
+        children,
+        id,
+        fullWidth = true,
+        title,
+        name,
+        error,
+        className = 'UITextInput',
+        type = 'text',
+        ...other
+    } = props;
 
-    const elementId = name;
+    const elemId = id || name || uniqueID('input');
     const customClasses = fullWidth ? 'w-full' : '';
+    const labelText = label || title || children;
     return (
-        <div className={`FormControlWrapper ${className} ${customClasses}`}>
-            <div className={`FormControl${error ? ' Error' : ''}`}>
+        <div className={`uui-control-wrapper ${className} ${customClasses}`} title={title}>
+            <div className={`uui-control${error ? ' uui-error' : ''}`}>
                 <input
                     aria-invalid={!!error}
-                    className={'FormInput'}
-                    id={elementId}
+                    className={'uui-form-input'}
+                    id={elemId}
                     name={name}
                     ref={ref}
                     type={type}
                     {...other}
                 />
-                <label className={'FormLabel'} htmlFor={elementId}>
-                    {title}
+                <label className={'uui-label'} htmlFor={elemId}>
+                    {labelText}
                 </label>
-                <fieldset className={'FormFieldset'}>
-                    <legend className={'FormFieldsetLegend'}>{title}</legend>
+                <fieldset className={'uui-fieldset'}>
+                    <legend className={'uui-fieldset-legend'}>{labelText}</legend>
                 </fieldset>
             </div>
-            {error && <div className={'FormErrorText'}>{error}</div>}
+            {error && <div className={'uui-error-text'}>{error}</div>}
         </div>
     );
 });

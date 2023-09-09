@@ -1,66 +1,17 @@
+@import url('./utils.css');
 @import url('./palette.css');
 @import url('./button.css');
 
-.FormControl .FormInput {
-    @apply p-4 box-border w-full bg-transparent outline-none;
-}
-
-
-.FormControl .FormFieldset {
-    @apply border border-border/25 dark:border-border-dark/25;
-    @apply absolute w-full -top-[8px] bottom-0 px-2 rounded pointer-events-none;
-}
-
-.FormControl:hover .FormFieldset {
-    @apply border-border/75 dark:border-border-dark/75;
-}
-
-.FormControl:focus-within .FormFieldset {
-    @apply border-primary dark:border-primary-dark border-2;
-}
-
-.FormControl.Error .FormFieldset {
-    @apply border-error dark:border-error-light;
-}
-
-.FormControl .FormFieldsetLegend {
-    @apply opacity-0 text-[0.75em] pl-2 pr-1 block overflow-hidden h-4 transition-all duration-75 ease-in-out origin-left;
-}
-
-
-.FormControl:not(:focus-within) input:placeholder-shown + label + fieldset .FormFieldsetLegend{
-    @apply w-0 px-0;
-}
-
-.FormControlWrapper .FormErrorText {
-    @apply text-error dark:text-error-light scale-75 origin-left;
-}
-
-.FormControl .FormLabel {
-    @apply absolute text-black dark:text-white;
-}
-
-.FormControl .FormLabel {
-    @apply left-4 -top-3 transition-[top_,_left] duration-75 ease-in scale-75 origin-left;
-}
-
-
-.FormControl:focus-within .FormLabel {
-    @apply text-primary dark:text-primary-dark;
-}
-
-.FormControl:not(:focus-within) input:placeholder-shown + label {
-    @apply top-4 scale-100 left-4;
-}
-
-
-.FormControl.Error .FormLabel {
-    @apply text-error dark:text-error-light;
-}
 
 
 
-.FormControl .FormCheckbox {
+
+
+
+
+
+
+.uui-control .FormCheckbox {
     @apply bg-transparent accent-primary dark:accent-primary-dark w-6 h-6;
 }
 
@@ -92,7 +43,7 @@ span.ripple {
 
 
 
-.FormControl .FormSelect {
+.uui-control .FormSelect {
     @apply w-full p-4 border border-border/25 dark:border-border-dark/25 outline-0 rounded bg-[ButtonFace] bg-transparent;
     @apply hover:border-border/75 dark:hover:border-border-dark/75;
     /*@apply rounded m-0 focus:outline-primary focus:outline-1 ;*/
@@ -110,13 +61,13 @@ span.ripple {
     border-radius: 3px;
 }
 
-.FormControl .FormSelect option {
+.uui-control .FormSelect option {
     /*@apply text-black;*/
     /*@apply dark:bg-border/75;*/
 }
 
 
-.FormControl:focus-within .FormSelect {
+.uui-control:focus-within .FormSelect {
     /*@apply outline-primary outline-2 border-2 border-primary*/
 }
 

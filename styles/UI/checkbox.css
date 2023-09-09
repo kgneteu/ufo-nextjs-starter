@@ -1,0 +1,76 @@
+.uui-checkbox-wrapper, .uui-radio-wrapper {
+    @apply flex items-center;
+}
+
+input.uui-checkbox-input, input.uui-radio-input {
+    @apply w-10 h-10 appearance-none;
+}
+
+.uui-checkbox-control, .uui-radio-control {
+    @apply flex rounded-full overflow-hidden;
+}
+
+.uui-checkbox-control:hover, .uui-radio-control:hover {
+    background: rgba(var(--uui-bg-color), 0.08)
+}
+
+.uui-checkbox-control:focus-within, .uui-radio-control:focus-within {
+    background: rgba(var(--uui-bg-color), 0.2)
+}
+
+
+.uui-icon-wrapper {
+    @apply pointer-events-none absolute;
+    @apply top-2 left-2 h-6 w-6 p-[2px];
+}
+
+.uui-icon {
+    @apply border-2 pointer-events-none h-full w-full;
+    @apply transition-colors duration-100 ease-linear;
+    border-color: black;
+}
+
+.dark .uui-icon {
+    border-color: white;
+}
+
+
+.uui-checkbox-control .uui-icon {
+    @apply rounded-[4px] ;
+}
+
+.uui-radio-control .uui-icon {
+    @apply rounded-full;
+}
+
+.uui-checkbox-control svg, .uui-radio-control svg {
+    @apply w-full h-full rounded absolute top-0 left-0 scale-50 opacity-100;
+    @apply transition-all duration-200 delay-100 ease-linear;
+}
+
+.uui-checkbox-control input:checked + div svg,
+.uui-radio-control input:checked + div svg {
+    @apply scale-100;
+}
+
+.uui-checkbox-control input:checked + div svg {
+    color: rgb(var(--uui-contrast-text));
+}
+
+.uui-radio-control input:checked + div svg {
+    color: rgb(var(--uui-border-color));
+}
+
+.uui-checkbox-control input:checked + div div {
+    background: rgb(var(--uui-bg-color));
+    border-color: rgb(var(--uui-bg-color));
+}
+
+.uui-radio-control input:checked + div div {
+    border-color: rgb(var(--uui-bg-color));
+}
+
+.uui-checkbox-control input:not(:checked) + div svg,
+.uui-radio-control input:not(:checked) + div svg {
+    @apply opacity-0;
+}

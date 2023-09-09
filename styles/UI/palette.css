@@ -14,7 +14,7 @@
     --uui-color-tertiary: 81, 45, 168;
     --uui-color-tertiary-light: 94, 53, 177;
     --uui-color-tertiary-dark: 69, 39, 160;
-    --uui-color-contrast-text-tertiary: 0, 0, 0;
+    --uui-color-contrast-text-tertiary: 255, 255, 255;
 
     --uui-color-error: 211, 47, 47;
     --uui-color-error-light: 244, 67, 54;
@@ -46,18 +46,32 @@
     --uui-text-color: var(--uui-color-primary);
     --uui-text-color-dark: var(--uui-color-primary-dark);
     --uui-text-color-light: var(--uui-color-primary-light);
+    --uui-text-color-base: var(--uui-color-primary);
+}
+
+.dark .uui-text-primary {
+    --uui-text-color: var(--uui-color-primary-light);
 }
 
 .uui-bg-primary {
     --uui-bg-color: var(--uui-color-primary);
     --uui-bg-color-dark: var(--uui-color-primary-dark);
     --uui-bg-color-light: var(--uui-color-primary-light);
+    --uui-bg-color-base: var(--uui-color-primary);
+}
+
+.dark .uui-bg-primary {
+    --uui-bg-color: var(--uui-color-primary-light);
 }
 
 .uui-border-primary {
     --uui-border-color: var(--uui-color-primary);
     --uui-border-color-dark: var(--uui-color-primary-dark);
     --uui-border-color-light: var(--uui-color-primary-light);
+    --uui-border-color-base: var(--uui-color-primary);
+}
+.dark .uui-border-primary {
+    --uui-border-color: var(--uui-color-primary-light);
 }
 
 /*Secondary*/
@@ -106,7 +120,7 @@
     --uui-border-color-light: var(--uui-color-tertiary-light);
 }
 
-/*Error*/
+/*uui-error*/
 .uui-contrast-text-error {
     --uui-contrast-text: var(--uui-color-contrast-text-error);
 }
@@ -173,4 +187,74 @@
     --uui-border-color: var(--uui-color-info);
     --uui-border-color-dark: var(--uui-color-info-dark);
     --uui-border-color-light: var(--uui-color-info-light);
+}
+
+/*Success*/
+.uui-contrast-text-success {
+    --uui-contrast-text: var(--uui-color-contrast-text-success);
+}
+
+.uui-text-success {
+    --uui-text-color: var(--uui-color-success);
+    --uui-text-color-dark: var(--uui-color-success-dark);
+    --uui-text-color-light: var(--uui-color-success-light);
+}
+
+.uui-bg-success {
+    --uui-bg-color: var(--uui-color-success);
+    --uui-bg-color-dark: var(--uui-color-success-dark);
+    --uui-bg-color-light: var(--uui-color-success-light);
+}
+
+.uui-border-success {
+    --uui-border-color: var(--uui-color-success);
+    --uui-border-color-dark: var(--uui-color-success-dark);
+    --uui-border-color-light: var(--uui-color-success-light);
+}
+
+/*Black*/
+.uui-contrast-text-black {
+    --uui-contrast-text: 255, 255, 255;
+}
+
+.uui-text-black {
+    --uui-text-color: 0, 0, 0;
+    --uui-text-color-dark: 0, 0, 0;
+    --uui-text-color-light: 0, 0, 0;
+}
+
+.uui-bg-black {
+    --uui-bg-color: 0, 0, 0;
+    --uui-bg-color-dark: 64, 64, 64;
+    --uui-bg-color-light: 255, 255, 255;
+}
+
+.uui-border-black {
+    --uui-border-color: 0, 0, 0;
+    --uui-border-color-dark: 0, 0, 0;
+    --uui-border-color-light: 0, 0, 0;
+}
+
+
+/*White*/
+.uui-contrast-text-white {
+    --uui-contrast-text: 0, 0, 0;
+}
+
+.uui-text-white {
+    --uui-text-color: 0, 0, 0;
+    --uui-text-color-dark: 0, 0, 0;
+    --uui-text-color-light: 0, 0, 0;
+}
+
+.uui-bg-white {
+    --uui-bg-color: 255, 255, 255;
+    --uui-bg-color-dark: 225, 225, 225;
+    --uui-bg-color-light: 255, 255, 255;
+}
+
+.uui-border-white {
+    --uui-border-color: 255, 255, 255;
+    --uui-border-color-dark: 0, 0, 0;
+    --uui-border-color-light: 0, 0, 0;
 }

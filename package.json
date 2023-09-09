@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "@hookform/resolvers": "^3.2.0",
+    "@react-icons/all-files": "^4.1.0",
     "axios": "^1.4.0",
     "dayjs": "^1.11.9",
     "lodash": "^4.17.21",
@@ -11,6 +12,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-hook-form": "^7.45.4",
+    "react-icons": "^4.10.1",
     "yup": "^1.2.0"
   },
   "devDependencies": {
@@ -50,8 +52,8 @@
     "build": "next build",
     "start": "next start",
     "export": "next export",
-    "lint": "next lint",
-    "lint:fix": "next lint --fix",
+    "lint": "eslint components pages",
+    "lint:fix": "eslint components pages --fix",
     "test": "jest --config ./tests/unit/config/jest.config.js",
     "test:ci": "jest --ci --config ./tests/unit/config/jest.config.js",
     "test:e2e": "playwright test --project=chromium --headed --config ./tests.e2e/config/playwright.config.js",

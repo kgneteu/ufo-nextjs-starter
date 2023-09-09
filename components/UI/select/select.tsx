@@ -22,7 +22,7 @@ export const Select = forwardRef<HTMLSelectElement, TextInputProps>((props: Text
     const { title, name, ...other } = props;
     const elemId = name;
     return (
-        <div className={'FormControl UISelect'}>
+        <div className={'uui-control UISelect'}>
             <select className={'FormSelect'} id={elemId} name={name} ref={ref} {...other}>
                 {props.children}
             </select>

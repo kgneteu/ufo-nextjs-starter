@@ -1,0 +1,88 @@
+.uui-form-input {
+    @apply p-4 box-border w-full bg-transparent outline-none;
+}
+
+/*Placeholder*/
+.uui-control input::placeholder {
+    @apply transition-colors delay-[90] ease-in-out;
+}
+
+.uui-control input:not(:focus)::placeholder {
+    @apply text-transparent;
+}
+
+/*Fieldset*/
+
+.uui-control .uui-fieldset {
+    @apply border border-border/25 dark:border-border-dark/25;
+    @apply absolute w-full -top-[8px] bottom-0 px-2 rounded pointer-events-none;
+}
+
+.uui-control:hover .uui-fieldset {
+    @apply border-border/75 dark:border-border-dark/75;
+}
+
+.uui-control:focus-within .uui-fieldset {
+    border-width: 2px;
+    border-color: rgb(var(--uui-color-primary));
+}
+
+.dark .uui-control:focus-within .uui-fieldset {
+    border-width: 2px;
+    border-color: rgb(var(--uui-color-primary-light));
+}
+
+.uui-control.uui-error .uui-fieldset {
+    border-color: rgb(var(--uui-color-error));
+}
+.dark .uui-control.uui-error .uui-fieldset {
+    border-color: rgb(var(--uui-color-error-light));
+}
+
+.uui-control .uui-fieldset-legend {
+    @apply opacity-0 text-[0.75em] pl-2 pr-1 block overflow-hidden h-4 transition-all duration-75 ease-in-out origin-left;
+}
+
+.uui-control:not(:focus-within) input:placeholder-shown + label + fieldset .uui-fieldset-legend{
+    @apply w-0 px-0;
+}
+
+/*Label*/
+.uui-control .uui-label {
+    @apply absolute text-black dark:text-white;
+}
+
+.uui-control .uui-label {
+    @apply left-4 -top-3 transition-[top_,_left] duration-75 ease-in scale-75 origin-left;
+}
+
+.uui-control:focus-within .uui-label {
+    color: rgb(var(--uui-color-primary));
+}
+
+.dark .uui-control:focus-within .uui-label {
+    color: rgb(var(--uui-color-primary-light));
+}
+
+.uui-control:not(:focus-within) input:placeholder-shown + label {
+    @apply top-4 scale-100 left-4;
+}
+
+.uui-control.uui-error .uui-label {
+    color: rgb(var(--uui-color-error));
+}
+.dark .uui-control.uui-error .uui-label {
+    color: rgb(var(--uui-color-error-light));
+}
+
+/*Error text*/
+
+.uui-control-wrapper .uui-error-text {
+    color: rgb(var(--uui-color-error));
+    @apply dark:text-error-light scale-75 origin-left;
+}
+
+.dark .uui-control-wrapper .uui-error-text {
+    color: rgb(var(--uui-color-error-light));
+}
+
